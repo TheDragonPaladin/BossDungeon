@@ -29,7 +29,9 @@ class Player
     public int getGo(){return go;}
     public int getSp(){return sp;}
     public int getMahp(){return mahp;}
-    public void changeHp(int change){hp += change;}
+    public void heal(){hp = mahp;}
+    public void hit(int damage){hp -= damage;}
+    public void changeHp(int change){mahp += change;}
     public void changeIn(int change){in += change;}
     public void changeSt(int change){st += change;}
     public void changeGo(int change){go += change;}

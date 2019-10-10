@@ -3,9 +3,10 @@ import java.awt.event.*;
 import java.util.Date;
 import javax.swing.*;
 public class MainMenu extends JPanel{
-    Player doe = new Player(50, 10, 0);
+    public Player doe = new Player(50, 10, 0);
     public void paintComponent(Graphics g){
         super.paintComponent(g);
+        doe.hit(25);
         this.setBackground(Color.GREEN);
         //Button Background
         g.setColor(Color.GRAY);
@@ -47,12 +48,13 @@ public class MainMenu extends JPanel{
     }
     private class Rest implements ActionListener{
         public void actionPerformed(ActionEvent y){
-            JFrame f = new JFrame("Inn");
-            f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            Inn f1 = new Inn();
-            f.add(f1);
-            f.setSize(800, 500);
-            f.setVisible(true);
+            doe.heal();
+            JFrame i = new JFrame("Inn");
+            i.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            Inn i1 = new Inn();
+            i.add(i1);
+            i.setSize(800, 500);
+            i.setVisible(true);
         }  
     }
     private class Combat implements ActionListener{
