@@ -3,10 +3,9 @@ import java.awt.event.*;
 import java.util.Date;
 import javax.swing.*;
 public class MainMenu extends JPanel{
-    public Player doe = new Player(50, 10, 0);
+    public Player doe = Singleton.getInstance();
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-        doe.hit(25);
         this.setBackground(Color.GREEN);
         //Button Background
         g.setColor(Color.GRAY);
@@ -49,12 +48,21 @@ public class MainMenu extends JPanel{
     private class Rest implements ActionListener{
         public void actionPerformed(ActionEvent y){
             doe.heal();
-            JFrame i = new JFrame("Inn");
-            i.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            Inn i1 = new Inn();
-            i.add(i1);
-            i.setSize(800, 500);
-            i.setVisible(true);
+            Singleton.setInstance(doe);
+            repaint();
+            /*
+             * public void paintComponent(Graphics g){
+             * super.paintComponent(g);
+             * this.setBackground(new Color(171, 136, 66));
+             * g.setColor(new Color(125, 125, 125));
+             * g.fillRect(5, 5, 790, 440);
+             * g.setColor(new Color(171, 136, 66));
+             * g.fillRect(25, 25, 750, 400);
+             * g.setColor(Color.WHITE);
+             * g.fillRect(50, 200, 700, 100);
+             * g.setColor(Color.BLACK);
+             * g.drawString("You have rested and are back up to full hp.", 250, 250);
+            */
         }  
     }
     private class Combat implements ActionListener{

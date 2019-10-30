@@ -3,6 +3,7 @@ import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
 public class Inventory extends JPanel{
+    public Player doe = Singleton.getInstance();
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         this.setBackground(new Color(171, 136, 66));
@@ -15,15 +16,9 @@ public class Inventory extends JPanel{
         g.fillRect(40, 175, 700, 100);
         g.fillRect(40, 300, 700, 100);
         g.setColor(Color.BLACK);
-        g.drawString("Armor", 75, 65);
-        g.drawString("Tier 1", 90, 90);
-        g.drawString("Tier 2", 140, 90);
-        g.drawString("Melee Weapon", 75, 190);
-        g.drawString("Tier 1", 90, 215);
-        g.drawString("Tier 2", 140, 215);
-        g.drawString("Magic Weapon", 75, 315);
-        g.drawString("Tier 1", 90, 340);
-        g.drawString("Tier 2", 140, 340);
+        g.drawString("Armor: " + doe.getIthp(), 75, 65);
+        g.drawString("Melee Weapon: "+ doe.getItst(), 75, 190);
+        g.drawString("Magic Weapon: "+doe.getItin(), 75, 315);
         JButton back = new JButton("Back");
         back.setBounds(50, 420, 100, 25);
         add(back);

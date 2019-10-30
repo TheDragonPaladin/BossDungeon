@@ -54,6 +54,8 @@ public class MakeChar extends JPanel{
             intelligence.setVisible(true);
         add(in);
         in.setVisible(true);
+        //Prepare player
+        Singleton.setInstance(doe);
         //Finish
         JButton start = new JButton("Done");
         start.setBounds(350, 175, 100, 25);
@@ -63,7 +65,7 @@ public class MakeChar extends JPanel{
     }
     private class Begin implements ActionListener{
         public void actionPerformed(ActionEvent y){
-                JFrame sta = new JFrame("MainMenu");
+            JFrame sta = new JFrame("MainMenu");
             sta.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             MainMenu begin = new MainMenu();
             sta.add(begin);
@@ -75,6 +77,7 @@ public class MakeChar extends JPanel{
         public void actionPerformed(ActionEvent y){
             doe.changeHp(1);
             health.setText(""+doe.getHp());
+            removeAll();
             repaint();
                 }  
     }
@@ -82,6 +85,7 @@ public class MakeChar extends JPanel{
         public void actionPerformed(ActionEvent y){
             doe.changeHp(-1);
             health.setText(""+doe.getHp());
+            removeAll();
             repaint();
                 }  
     }
@@ -89,6 +93,7 @@ public class MakeChar extends JPanel{
         public void actionPerformed(ActionEvent y){
             doe.changeSt(1);
             strength.setText(""+doe.getSt());
+            removeAll();
             repaint();
                 }  
     }
@@ -96,6 +101,7 @@ public class MakeChar extends JPanel{
         public void actionPerformed(ActionEvent y){
             doe.changeSt(-1);
             strength.setText(""+doe.getSt());
+            removeAll();
             repaint();
                 }  
     }
@@ -103,6 +109,7 @@ public class MakeChar extends JPanel{
         public void actionPerformed(ActionEvent y){
             doe.changeIn(1);
             intelligence.setText(""+doe.getIn());
+            removeAll();
             repaint();
                 }  
     }
@@ -110,6 +117,7 @@ public class MakeChar extends JPanel{
         public void actionPerformed(ActionEvent y){
             doe.changeIn(-1);
             intelligence.setText(""+doe.getIn());
+            removeAll();
             repaint();
                 }  
     }

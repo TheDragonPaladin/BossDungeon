@@ -2,9 +2,9 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
-public class Forest extends JPanel {
+public class Mountain extends JPanel {
     public Player doe = Singleton.getInstance();
-    public Creature forest = new Creature(1);
+    public Creature mountain = new Creature(5);
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         this.setBackground(Color.GREEN);
@@ -26,15 +26,15 @@ public class Forest extends JPanel {
         MaAt mag = new MaAt();
         magic.addActionListener(mag);
         //Creature
-        g.drawString(forest.getNa(), 400, 30);
-        g.drawString(forest.getHp()+"/"+forest.getMahp(), 410, 50);
+        g.drawString(mountain.getNa(), 400, 30);
+        g.drawString(mountain.getHp()+"/"+mountain.getMahp(), 410, 50);
     }
     private class MeAt implements ActionListener{
         public void actionPerformed(ActionEvent y){
-            forest.hit(doe.getSt());
-            if(forest.getHp() <= 0){
-                doe.level((int)((forest.getAt()+forest.getMahp())/10));
-                doe.changeGo((int)((forest.getAt()+forest.getMahp())/5));
+            mountain.hit(doe.getSt());
+            if(mountain.getHp() <= 0){
+                doe.level((int)((mountain.getAt()+mountain.getMahp())/10));
+                doe.changeGo((int)((mountain.getAt()+mountain.getMahp())/5));
                 JFrame h = new JFrame("Fight");
                 h.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 Fight h1 = new Fight();
@@ -43,7 +43,7 @@ public class Forest extends JPanel {
                 h.setVisible(true);
             }
             else{
-                doe.hit(forest.getAt());
+                doe.hit(mountain.getAt());
             }
             removeAll();
             revalidate();
@@ -52,10 +52,10 @@ public class Forest extends JPanel {
     }
     private class MaAt implements ActionListener{
         public void actionPerformed(ActionEvent y){
-            forest.hit(doe.getIn());
-            if(forest.getHp() <= 0){
-                doe.level((int)((forest.getAt()+forest.getMahp())/10));
-                doe.changeGo((int)((forest.getAt()+forest.getMahp())/5));
+            mountain.hit(doe.getIn());
+            if(mountain.getHp() <= 0){
+                doe.level((int)((mountain.getAt()+mountain.getMahp())/10));
+                doe.changeGo((int)((mountain.getAt()+mountain.getMahp())/5));
                 JFrame h = new JFrame("Fight");
                 h.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 Fight h1 = new Fight();
@@ -64,7 +64,7 @@ public class Forest extends JPanel {
                 h.setVisible(true);
             }
             else{
-                doe.hit(forest.getAt());
+                doe.hit(mountain.getAt());
             }
             removeAll();
             revalidate();
